@@ -105,5 +105,3 @@ media/
 *.pyc
 *.db
 *.pid
-
-env/
