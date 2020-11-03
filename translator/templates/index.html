@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <header class="bg-primary text-center py-5 mb-4">
         <div class="container">
@@ -9,7 +10,7 @@
         <div class="row">
             <a href="{% url 'translator' 'latinToCyrillic' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    <img src="{% static 'images/img1.jpg' %}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Latin</h5>
@@ -19,7 +20,7 @@
             </a>
             <a href="{% url 'translator' 'latinToGeorgian' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1552959988-b94b76838365?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    <img src="{% static 'images/img2.jpg' %}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Latin</h5>
@@ -29,7 +30,7 @@
             </a>
             <a href="{% url 'translator' 'latinToArmenian' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80"
+                    <img src="{% static 'images/img3.jpg' %}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Latin</h5>
@@ -39,7 +40,7 @@
             </a>
             <a href="{% url 'translator' 'latinToGreek' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1522881451255-f59ad836fdfb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=838&q=80"
+                    <img src="{% static 'images/img4.jpg' %}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Latin</h5>
@@ -49,7 +50,7 @@
             </a>
             <a href="{% url 'translator' 'cyrillicToLatin' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1592431913827-893545d23718?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    <img src="{% static 'images/img5.jpg'%}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Cyrillic</h5>
@@ -59,7 +60,7 @@
             </a>
             <a href="{% url 'translator' 'georgianToLatin' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/1/irish-hands.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    <img src="{% static 'images/img6.jpg' %}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Georgian</h5>
@@ -69,7 +70,7 @@
             </a>
             <a href="{% url 'translator' 'armenianToLatin' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+                    <img src="{% static 'images/img7.jpg' %}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Armenian</h5>
@@ -79,7 +80,7 @@
             </a>
             <a href="{% url 'translator' 'greekToLatin' %}" class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1587262538177-842ad13e290c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    <img src="{% static 'images/img8.jpg' %}"
                          class="card-img-top" alt="image">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">Greek</h5>
