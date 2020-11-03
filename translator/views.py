@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from transliterate import translit, get_available_language_codes
+from transliterate import translit
 from django.views.generic import View
 
 
@@ -13,93 +12,95 @@ class TranslateView(View):
     result = ''
 
     def get(self, request, *args, **kwargs):
-        if self.kwargs['translatorCh'] == 'latinToCyrillic':
-            fromL = 'Latin'
-            toL = 'Cyrillic'
+        global from_l, to_l
+        if self.kwargs['translatorType'] == 'latinToCyrillic':
+            from_l = 'Latin'
+            to_l = 'Cyrillic'
 
-        elif self.kwargs['translatorCh'] == 'latinToGeorgian':
-            fromL = 'Latin'
-            toL = 'Georgian'
+        elif self.kwargs['translatorType'] == 'latinToGeorgian':
+            from_l = 'Latin'
+            to_l = 'Georgian'
 
-        elif self.kwargs['translatorCh'] == 'latinToArmenian':
-            fromL = 'Latin'
-            toL = 'Armenian'
+        elif self.kwargs['translatorType'] == 'latinToArmenian':
+            from_l = 'Latin'
+            to_l = 'Armenian'
 
-        elif self.kwargs['translatorCh'] == 'latinToGreek':
-            fromL = 'Latin'
-            toL = 'Greek'
+        elif self.kwargs['translatorType'] == 'latinToGreek':
+            from_l = 'Latin'
+            to_l = 'Greek'
 
-        elif self.kwargs['translatorCh'] == 'cyrillicToLatin':
-            fromL = 'Cyrillic'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'cyrillicToLatin':
+            from_l = 'Cyrillic'
+            to_l = 'Latin'
 
-        elif self.kwargs['translatorCh'] == 'georgianToLatin':
-            fromL = 'Georgian'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'georgianToLatin':
+            from_l = 'Georgian'
+            to_l = 'Latin'
 
-        elif self.kwargs['translatorCh'] == 'armenianToLatin':
-            fromL = 'Armenian'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'armenianToLatin':
+            from_l = 'Armenian'
+            to_l = 'Latin'
 
-        elif self.kwargs['translatorCh'] == 'greekToLatin':
-            fromL = 'Greek'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'greekToLatin':
+            from_l = 'Greek'
+            to_l = 'Latin'
 
         context = {
             'result': self.result,
-            'fromL': fromL,
-            'toL': toL
+            'from_l': from_l,
+            'to_l': to_l
         }
         return render(request, 'translator.html', context)
 
     def post(self, request, *args, **kwargs):
-        if self.kwargs['translatorCh'] == 'latinToCyrillic':
-            fromL = 'Latin'
-            toL = 'Cyrillic'
+        global to_l, from_l
+        if self.kwargs['translatorType'] == 'latinToCyrillic':
+            from_l = 'Latin'
+            to_l = 'Cyrillic'
             self.result = translit(request.POST.get('text'), 'ru')
 
-        elif self.kwargs['translatorCh'] == 'latinToGeorgian':
-            fromL = 'Latin'
-            toL = 'Georgian'
+        elif self.kwargs['translatorType'] == 'latinToGeorgian':
+            from_l = 'Latin'
+            to_l = 'Georgian'
             self.result = translit(request.POST.get('text'), 'ka')
 
-        elif self.kwargs['translatorCh'] == 'latinToArmenian':
-            fromL = 'Latin'
-            toL = 'Armenian'
+        elif self.kwargs['translatorType'] == 'latinToArmenian':
+            from_l = 'Latin'
+            to_l = 'Armenian'
             self.result = translit(request.POST.get('text'), 'hy')
 
-        elif self.kwargs['translatorCh'] == 'latinToGreek':
-            fromL = 'Latin'
-            toL = 'Armenian'
+        elif self.kwargs['translatorType'] == 'latinToGreek':
+            from_l = 'Latin'
+            to_l = 'Armenian'
             self.result = translit(request.POST.get('text'), 'el')
 
-        elif self.kwargs['translatorCh'] == 'cyrillicToLatin':
-            fromL = 'Cyrillic'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'cyrillicToLatin':
+            from_l = 'Cyrillic'
+            to_l = 'Latin'
             self.result = translit(
                 request.POST.get('text'), 'ru', reversed=True)
 
-        elif self.kwargs['translatorCh'] == 'georgianToLatin':
-            fromL = 'Georgian'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'georgianToLatin':
+            from_l = 'Georgian'
+            to_l = 'Latin'
             self.result = translit(
                 request.POST.get('text'), 'ka', reversed=True)
 
-        elif self.kwargs['translatorCh'] == 'armenianToLatin':
-            fromL = 'Armenian'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'armenianToLatin':
+            from_l = 'Armenian'
+            to_l = 'Latin'
             self.result = translit(
                 request.POST.get('text'), 'hy', reversed=True)
 
-        elif self.kwargs['translatorCh'] == 'greekToLatin':
-            fromL = 'Greek'
-            toL = 'Latin'
+        elif self.kwargs['translatorType'] == 'greekToLatin':
+            from_l = 'Greek'
+            to_l = 'Latin'
             self.result = translit(
                 request.POST.get('text'), 'el', reversed=True)
 
         context = {
             'result': self.result,
-            'fromL': fromL,
-            'toL': toL
+            'from_l': from_l,
+            'to_l': to_l
         }
         return render(request, 'translator.html', context)
