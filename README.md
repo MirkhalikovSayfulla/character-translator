@@ -1,6 +1,8 @@
 # character-translator
 Python(Django) Character Translator. Latin, Cyrillic, Georgian, Armenian and Greek
 
+Live Demo: https://character-translator.herokuapp.com/
+
 ## Setup:
 1. Download repository: `git clone https://github.com/MirkhalikovSayfulla/character-translator.git`
 2. Move to the base directory: `cd character-translator`
